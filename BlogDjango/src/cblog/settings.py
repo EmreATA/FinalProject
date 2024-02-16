@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('6sPfgSHqOdIZJiZ2wKijLRXV7yhbkqvh7Qfmpq9L')
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'cblog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': django.db.backends.mysql,
-        'NAME': databaseemre, # database name in RDS is written here
-        'USER': admin, # database master username in RDS is written here
-        'PASSWORD': config('admin12345'),
-        'HOST': database.c3weco04ys3d.us-east-1.rds.amazonaws.com,  # database endpoint is written here
+        'NAME': 'mydbinstance', # database name in RDS is written here
+        'USER': 'admin', # database master username in RDS is written here
+        'PASSWORD': config('PASSWORD'),
+        'HOST': 'mydbinstance.c3weco04ys3d.us-east-1.rds.amazonaws.com',  # database endpoint is written here
         'PORT': 3306 # database port is written here
     }
 }
@@ -144,7 +144,7 @@ LOGIN_REDIRECT_URL = "blog:list"
 LOGIN_URL = "login"
 
 
-AWS_STORAGE_BUCKET_NAME = 'awsproject-rahmatullah-blog' # please enter your s3 bucket name
+AWS_STORAGE_BUCKET_NAME = 'django-final-project' # please enter your s3 bucket name
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_REGION_NAME = "us-east-1" # please enter your s3 region 
 AWS_DEFAULT_ACL = 'public-read'
